@@ -7,9 +7,6 @@ namespace CrashCourse.Core.ApplicationService
 {
     public interface IVideoService
     {
-        /* 
-         * Video NewVideo(string videoName, string videoGenre);
-         */
         Video NewVideo(string name, string genre);
 
         Video CreateVideo(Video video);

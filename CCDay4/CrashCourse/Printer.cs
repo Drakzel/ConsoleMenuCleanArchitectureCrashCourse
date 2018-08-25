@@ -7,6 +7,7 @@ namespace CrashCourse
 {
     public class Printer : IPrinter
     {
+        PrinterFunctions printerFunctions = new PrinterFunctions();
         readonly IVideoService _videoService;
 
         public Printer(IVideoService videoService)
@@ -14,6 +15,7 @@ namespace CrashCourse
             _videoService = videoService;
         }
 
+        //Considering the build of a PrinterFunctions class
         public void InitiateMainMenu()
         {
             Console.Clear();
@@ -37,10 +39,10 @@ namespace CrashCourse
                         InitiateVideoListMenu();
                         break;
                     case 3:
-                        //InitiateUpdateVideoMenu();
+                        InitiateUpdateVideoMenu();
                         break;
                     case 4:
-                        //InitiateDeleteVideoMenu();
+                        InitiateDeleteVideoMenu();
                         break;
                     case 5:
                         Environment.Exit(0);
@@ -76,10 +78,11 @@ namespace CrashCourse
             var video = _videoService.NewVideo(nameOfNewVideo, genreOfNewVideo);
             video = _videoService.CreateVideo(video);
 
-            Console.WriteLine("\n\nThe following video has been added to the library.\n" +
-                "Name: {0}\n" +
-                "Genre: {1}\n" +
-                "Id: {2}", video.VideoName, video.VideoGenre, video.Id);
+            Console.Clear();
+            Console.WriteLine(
+                "| Created video |\n" +
+                "|_______________|\n");
+            printerFunctions.PrintVideo(video);
         }
 
         private void InitiateVideoListMenu()
@@ -90,12 +93,78 @@ namespace CrashCourse
                 "|____________________|\n");
             var videos = _videoService.GetAllVideos();
 
-            foreach (var video in videos)
+            printerFunctions.PrintVideo(videos);
+        }
+
+        private void InitiateUpdateVideoMenu()
+        {
+            Console.Clear();
+            Console.WriteLine(
+                "| Updating a selected video |\n" +
+                "|___________________________|\n" +
+                "- Enter id of video:");
+            string input = Console.ReadLine();
+
+            if (int.TryParse(input, out int videoId))
             {
-                Console.WriteLine(
-                    "Name: {0}\n" +
-                    "Genre: {1}\n" +
-                    "Id: {2}\n", video.VideoName, video.VideoGenre, video.Id);
+                var video = _videoService.GetVideo(videoId);
+
+                if (video == null)
+                {
+                    Console.WriteLine("Invalid id, video not found.");
+                }
+                else
+                {
+                    Console.WriteLine(
+                        "\n| Selected video |\n" +
+                          "|________________|");
+                    printerFunctions.PrintVideo(video);
+
+                    Console.WriteLine("- Enter a new name:");
+                    string newName = Console.ReadLine();
+
+                    Console.WriteLine();
+
+                    Console.WriteLine("- Enter a new genre:");
+                    string newGenre = Console.ReadLine();
+                    
+                    video.VideoGenre = newGenre;
+                    video.VideoName = newName;
+                    video = _videoService.UpdateVideo(video);
+
+                    Console.Clear();
+                    Console.WriteLine(
+                        "| Updated Video |\n" +
+                        "|_______________|\n");
+                    printerFunctions.PrintVideo(video);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Your entered id, must be a number.");
+            }
+        }
+
+        private void InitiateDeleteVideoMenu()
+        {
+            Console.Clear();
+            Console.WriteLine(
+                "| Deleting a selected video |\n" +
+                "|___________________________|\n" +
+                "- Enter id of video:");
+            string input = Console.ReadLine();
+            if (int.TryParse(input, out int verifiedNumber))
+            {
+                var video = _videoService.DeleteVideo(verifiedNumber);
+                if (video != null)
+                {
+                    Console.Clear();
+                    Console.WriteLine(
+                        "| Selected video has been deleted |\n" +
+                        "|_________________________________|\n");
+                    printerFunctions.PrintVideo(video);
+                }
+                else { Console.WriteLine("Invalid id, video not found"); }
             }
         }
     }

@@ -15,7 +15,7 @@ namespace CrashCourse.Core.ApplicationService.Services
         {
             _videoRepo = videoRepository;
         }
-
+        
         public Video NewVideo(string name, string genre)
         {
             var video = new Video()
