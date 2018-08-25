@@ -19,9 +19,6 @@ namespace CrashCourse
             var serviceProvider = serviceCollection.BuildServiceProvider();
             var printer = serviceProvider.GetRequiredService<IPrinter>();
             printer.InitiateMainMenu();
-
-
-            //UserInterface.InitiateMainMenu();
         }
     }
 }
