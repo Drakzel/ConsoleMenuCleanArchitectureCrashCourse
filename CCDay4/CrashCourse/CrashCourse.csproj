@@ -10,7 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CrashCourse.Core.Entity\CrashCourse.Core.Entity.csproj" />
     <ProjectReference Include="..\CrashCourse.Core\CrashCourse.Core.csproj" />
     <ProjectReference Include="..\CrashCourse.Infrastructure.Static.Data\CrashCourse.Infrastructure.Static.Data.csproj" />
   </ItemGroup>
