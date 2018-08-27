@@ -14,8 +14,7 @@ namespace CrashCourse
         {
             _videoService = videoService;
         }
-
-        //Considering the build of a PrinterFunctions class
+        
         public void InitiateMainMenu()
         {
             Console.Clear();

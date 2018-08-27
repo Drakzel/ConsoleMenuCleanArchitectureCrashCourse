@@ -8,7 +8,7 @@ namespace CrashCourse.Infrastructure.Static.Data.Repositories
 {
     public class VideoRepository : IVideoRepository
     {
-        static int id = 1; //OH MIN FEDE GUD!
+        private int id = 1;
         private List<Video> _videos = new List<Video>();
 
         public Video CreateVideo(Video video)
