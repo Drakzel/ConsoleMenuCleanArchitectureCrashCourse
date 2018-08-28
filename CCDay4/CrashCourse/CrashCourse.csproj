@@ -11,7 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CrashCourse.Core\CrashCourse.Core.csproj" />
-    <ProjectReference Include="..\CrashCourse.Infrastructure.Static.Data\CrashCourse.Infrastructure.Static.Data.csproj" />
+    <ProjectReference Include="..\CrashCourse.Infrastructure.Data\CrashCourse.Infrastructure.Data.csproj" />
   </ItemGroup>
 
 </Project>

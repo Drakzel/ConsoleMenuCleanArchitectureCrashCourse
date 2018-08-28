@@ -64,9 +64,9 @@ namespace CrashCourse
             Console.Clear();
             Console.WriteLine(
                 "| Creating a new video |\n" +
-                "|______________________|\n" +
-                "- Enter name of video:");
-            string nameOfNewVideo = Console.ReadLine();
+                "|______________________|\n");
+            string nameOfNewVideo = 
+                printerFunctions.AskQuestion("- Enter name of video: ");
 
             Console.WriteLine();
 

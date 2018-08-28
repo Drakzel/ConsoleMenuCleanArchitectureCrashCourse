@@ -22,5 +22,13 @@ namespace CrashCourse
                 PrintVideo(video);
             }
         }
+
+        /*
+         *public string AskQuestion(string question)
+         *{
+         *  console.WriteLine(question);
+         *  return string answer = console.ReadLine();
+         *}
+         */ 
     }
 }

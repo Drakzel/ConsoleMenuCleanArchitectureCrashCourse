@@ -1,7 +1,7 @@
 ﻿using CrashCourse.Core.ApplicationService;
 using CrashCourse.Core.ApplicationService.Services;
 using CrashCourse.Core.DomainService;
-using CrashCourse.Infrastructure.Static.Data.Repositories;
+using CrashCourse.Infrastructure.Data.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CrashCourse
