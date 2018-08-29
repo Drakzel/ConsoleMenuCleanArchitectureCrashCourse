@@ -23,12 +23,12 @@ namespace CrashCourse
             }
         }
 
-        /*
-         *public string AskQuestion(string question)
-         *{
-         *  console.WriteLine(question);
-         *  return string answer = console.ReadLine();
-         *}
-         */ 
+        public string AskQuestion(string question)
+        {
+           Console.WriteLine(question);
+           string answer = Console.ReadLine();
+
+            return answer;
+        }
     }
 }

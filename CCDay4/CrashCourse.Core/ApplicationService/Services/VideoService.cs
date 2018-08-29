@@ -1,5 +1,4 @@
-﻿using CrashCourse.Core.ApplicationService;
-using CrashCourse.Core.DomainService;
+﻿using CrashCourse.Core.DomainService;
 using CrashCourse.Core.Entity;
 using System;
 using System.Collections.Generic;
@@ -15,7 +14,7 @@ namespace CrashCourse.Core.ApplicationService.Services
         {
             _videoRepo = videoRepository;
         }
-        
+
         public Video NewVideo(string name, string genre)
         {
             var video = new Video()
